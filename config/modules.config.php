@@ -30,4 +30,5 @@ return [
     'Laminas\ApiTools\Rpc',
     'Laminas\ApiTools\Versioning',
     'Application',
+    'FoodMap',
 ];
