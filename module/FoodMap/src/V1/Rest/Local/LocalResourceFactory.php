@@ -5,6 +5,7 @@ class LocalResourceFactory
 {
     public function __invoke($services)
     {
-        return new LocalResource();
+        $mapper = $services->get(LocalMapper::class);
+        return new LocalResource($mapper);
     }
 }
