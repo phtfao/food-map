@@ -13,6 +13,10 @@ return [
     'db' => [
         'adapters' => [
             'dummy' => [],
+            'DBFoodMap' => [
+                'database' => 'data/foodmap.db',
+                'driver' => 'PDO_Sqlite',
+            ],
         ],
     ],
 ];
