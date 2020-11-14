@@ -29,6 +29,7 @@ return [
     'Laminas\ApiTools\Rest',
     'Laminas\ApiTools\Rpc',
     'Laminas\ApiTools\Versioning',
+    'Laminas\ApiTools\Documentation\Swagger',
     'Application',
     'FoodMap',
 ];
