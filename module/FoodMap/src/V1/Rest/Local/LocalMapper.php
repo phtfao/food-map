@@ -39,6 +39,28 @@ class LocalMapper
         return $local;
     }
 
+    public function update(int $id, array $data)
+    {
+        $local = $this->find($id);
+        $this->validaLocalExiste($local);
+
+        if (isset($data['latitude'])) {
+            $local->setLatitude($data['latitude']);
+        }
+
+        if (isset($data['longitude'])) {
+            $local->setLongitude($data['longitude']);
+        }
+
+        if (isset($data['observacao'])) {
+            $local->setObservacao($data['observacao']);
+        }
+        $local->setDtAlteracao((new \DateTime())->format('d/m/Y H:i:s'));
+
+        $this->tableGateway->update($local->getArrayCopy(), ['id' => $id]);
+        return $local;
+    }
+
     public function find(int $id)
     {
         $rowset = $this->tableGateway->select(['id' => $id]);
