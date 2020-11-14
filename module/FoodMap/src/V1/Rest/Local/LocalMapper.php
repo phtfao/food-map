@@ -61,6 +61,19 @@ class LocalMapper
         return $local;
     }
 
+    public function delete(int $id)
+    {
+        $local = $this->find($id);
+        $this->validaLocalExiste($local);
+        
+        if ($this->tableGateway->delete(['id' => $id]))
+        {
+            return true;
+        } else {
+            throw new \Exception("Falha ao excluir Ponto de Interesse de id $id.");
+        }
+    }
+
     public function find(int $id)
     {
         $rowset = $this->tableGateway->select(['id' => $id]);
