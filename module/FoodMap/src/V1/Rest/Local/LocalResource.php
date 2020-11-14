@@ -65,7 +65,7 @@ class LocalResource extends AbstractResourceListener
      */
     public function fetchAll($params = [])
     {
-        $this->mapper->fetchAll();
+        return $this->mapper->fetchAll();
     }
 
     /**
