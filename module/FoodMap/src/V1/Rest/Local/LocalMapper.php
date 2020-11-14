@@ -17,4 +17,25 @@ class LocalMapper
         $resultset = $this->tableGateway->select();
         return $resultset;
     }
+
+    public function fetch(int $id)
+    {
+        $local = $this->find($id);
+        $this->validaLocalExiste($local);
+        return $local;
+    }
+
+    public function find(int $id)
+    {
+        $rowset = $this->tableGateway->select(['id' => $id]);
+        return $rowset->current();
+    }
+
+    public function validaLocalExiste($local)
+    {
+        if (!($local instanceof LocalEntity)) {
+            throw new \Exception('Ponto de Interesse não encontrado.', 404);
+        }
+        return true;
+    }
 }
