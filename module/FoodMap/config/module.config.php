@@ -31,8 +31,8 @@ return [
             'collection_name' => 'local',
             'entity_http_methods' => [
                 0 => 'GET',
-                1 => 'PUT',
-                2 => 'DELETE',
+                1 => 'DELETE',
+                2 => 'PATCH',
             ],
             'collection_http_methods' => [
                 0 => 'GET',
@@ -77,6 +77,74 @@ return [
                 'route_name' => 'food-map.rest.local',
                 'route_identifier_name' => 'local_id',
                 'is_collection' => true,
+            ],
+        ],
+    ],
+    'api-tools-content-validation' => [
+        'FoodMap\\V1\\Rest\\Local\\Controller' => [
+            'input_filter' => 'FoodMap\\V1\\Rest\\Local\\Validator',
+        ],
+    ],
+    'input_filter_specs' => [
+        'FoodMap\\V1\\Rest\\Local\\Validator' => [
+            0 => [
+                'name' => 'latitude',
+                'required' => true,
+                'filters' => [
+                    0 => [
+                        'name' => \Laminas\Filter\StringTrim::class,
+                        'options' => [],
+                    ],
+                ],
+                'validators' => [
+                    0 => [
+                        'name' => \Laminas\Validator\Regex::class,
+                        'options' => [
+                            'pattern' => '/^-?[0-9]+(?:\\.[0-9]+)?$/',
+                        ],
+                    ],
+                ],
+                'error_message' => 'O campo Latitude não pode ser vazio.',
+            ],
+            1 => [
+                'name' => 'longitude',
+                'required' => true,
+                'filters' => [
+                    0 => [
+                        'name' => \Laminas\Filter\StringTrim::class,
+                        'options' => [],
+                    ],
+                ],
+                'validators' => [
+                    0 => [
+                        'name' => \Laminas\Validator\Regex::class,
+                        'options' => [
+                            'pattern' => '/^-?[0-9]+(?:\\.[0-9]+)?$/',
+                        ],
+                    ],
+                ],
+                'error_message' => 'O campo Logitude não pode ser vazio.',
+            ],
+            2 => [
+                'name' => 'observacao',
+                'required' => false,
+                'filters' => [
+                    0 => [
+                        'name' => \Laminas\Filter\StringTrim::class,
+                    ],
+                    1 => [
+                        'name' => \Laminas\Filter\StripTags::class,
+                    ],
+                ],
+                'validators' => [
+                    0 => [
+                        'name' => \Laminas\Validator\StringLength::class,
+                        'options' => [
+                            'min' => 1,
+                            'max' => null,
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
