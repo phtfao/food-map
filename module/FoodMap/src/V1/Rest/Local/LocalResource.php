@@ -20,7 +20,8 @@ class LocalResource extends AbstractResourceListener
      */
     public function create($data)
     {
-        return new ApiProblem(405, 'The POST method has not been defined');
+        $arrData = (array) $data;
+        return $this->mapper->save($arrData);
     }
 
     /**
