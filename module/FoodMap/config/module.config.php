@@ -148,4 +148,24 @@ return [
             ],
         ],
     ],
+    'api-tools-mvc-auth' => [
+        'authorization' => [
+            'FoodMap\\V1\\Rest\\Local\\Controller' => [
+                'collection' => [
+                    'GET' => true,
+                    'POST' => true,
+                    'PUT' => true,
+                    'PATCH' => true,
+                    'DELETE' => true,
+                ],
+                'entity' => [
+                    'GET' => true,
+                    'POST' => true,
+                    'PUT' => true,
+                    'PATCH' => true,
+                    'DELETE' => true,
+                ],
+            ],
+        ],
+    ],
 ];

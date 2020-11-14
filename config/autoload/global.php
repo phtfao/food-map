@@ -19,4 +19,11 @@ return [
             ],
         ],
     ],
+    'api-tools-mvc-auth' => [
+        'authentication' => [
+            'map' => [
+                'FoodMap\\V1' => 'htpasswd',
+            ],
+        ],
+    ],
 ];
