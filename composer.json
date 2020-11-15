@@ -71,8 +71,8 @@
         ],
         "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php",
         "test": "./vendor/bin/phpunit --testdox --coverage-text",
-        "test-request": "./vendor/bin/phpunit --group reques --testdox --coverage-text",
+        "test-request": "./vendor/bin/phpunit --group request --testdox --coverage-text",
         "test-unit": "./vendor/bin/phpunit --group unit --testdox --coverage-text",
-        "start": "chmod 777 data/cache -R .; composer install"
+        "init": "chmod 777 data/cache -R .; composer install"
     }
 }
