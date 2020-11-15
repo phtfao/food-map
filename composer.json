@@ -71,9 +71,9 @@
             "php -r 'if (file_exists(\"CHANGELOG.md\")) unlink(\"CHANGELOG.md\");'"
         ],
         "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php",
-        "test": "./vendor/bin/phpunit --testdox --coverage-text",
-        "test-request": "./vendor/bin/phpunit --group request --testdox --coverage-text",
-        "test-unit": "./vendor/bin/phpunit --group unit --testdox --coverage-text",
+        "test": "./vendor/bin/phpunit --testdox --coverage-text --coverage-html public/coverage",
+        "test-request": "./vendor/bin/phpunit --group request --testdox --coverage-text --coverage-html public/coverage",
+        "test-unit": "./vendor/bin/phpunit --group unit --testdox --coverage-text --coverage-html public/coverage",
         "build": "chmod 777 data/cache -R .; composer install"
     }
 }
