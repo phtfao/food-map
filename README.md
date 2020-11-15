@@ -9,15 +9,13 @@ O banco de dados utilizado foi o `SQLite`.
 
 Requerimentos
 ------------
-PHP >= 7.2;
-Apache >= 2.2.14;
-Composer >= 1.6.4;
-PDO_Sqlite.
+- PHP >= 7.2;
+- Apache >= 2.2.14;
+- Composer >= 1.6.4;
+- PDO_Sqlite.
 
-Instalação
+Instalação via Docker (recomendado)
 ------------
-
-### Via Docker (recomendado)
 
 Neste caso, é necessário ter apenas o `docker` e `docker-compose` instalados.
 Entre na pasta do projeto e execute os seguintes comandos:
@@ -47,7 +45,8 @@ Ou se preferir execute todos os testes através do comando:
 Um resumo dos testes será exibido após a execução de qualquer um dos comandos.
 Após executados os testes, um relatório detalhado ficará disponível em http://localhost:8080/coverage .
 
-### Via composer
+Instalação via composer
+------------
 
 Para instalação via composer é necessário um ambiente com todos os requisitos citados acima configurados.
 Apos clonar e entrar na pasta do projeto, execute o seguinte comando:
