@@ -8,4 +8,9 @@
             <directory>./module/FoodMap/test</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./module/FoodMap/src</directory>
+        </whitelist>
+    </filter>
 </phpunit>

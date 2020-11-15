@@ -10,6 +10,13 @@ use Laminas\ApiTools\ContentNegotiation\Request as LaminasRequest;
  */
 class FoodMaprequestTest extends AbstractRequestTest
 {
+    public static $lastInsertId;
+
+    public static function setUpBeforeClass(): void
+    {
+        self::$lastInsertId = null;
+    }
+
     public function setUp(): void
     {
         parent::setUp();
@@ -32,40 +39,12 @@ class FoodMaprequestTest extends AbstractRequestTest
 
         $content = json_decode($contentJson);
         $this->assertObjectHasAttribute('id', $content);
-        $this->lastInsertId = $content->id;
+        self::$lastInsertId = $content->id;
     }
 
-    /**
-     * @group x
-     */
     public function testExcluirLocalAutenticadoDeveRetornarStatus204()
     {
-        $paramns = [
-            'latitude' => '-15.258741',
-            'longitude' => '-15.248521',
-            'observacao' => '',
-        ];
-        $request = new LaminasRequest();
-        $token = $this->autenticar();
-        $headers = $request->getHeaders();
-        $headers->addHeaders([
-            'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
-            'Authorization' => "Basic {$token}"
-        ]);
-        $request->setHeaders($headers);
-
-        $request->setMethod('POST');
-        $request->setUri('http://localhost:8080/food-map/local');
-        $request->setContent(json_encode($paramns));
-
-        $client = new Client();
-        $response = $client->send($request);
-
-        $contentJson = $response->getContent();
-        $content = json_decode($contentJson);
-
-        $this->dispatch("/food-map/local/{$content->id}", 'DELETE');
+        $this->dispatch('/food-map/local/' . self::$lastInsertId, 'DELETE');
         $this->assertResponseStatusCode(204);
     }
 

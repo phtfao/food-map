@@ -5,7 +5,7 @@ namespace FoodMap\V1\Rest\Local;
 use Laminas\Db\ResultSet\ResultSet;
 
 /**
- * @group unitario
+ * @group unit
  */
 class LocalMapperTest extends AbstractTest
 {
