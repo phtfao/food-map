@@ -4,14 +4,8 @@
          bootstrap="vendor/autoload.php"
          colors="true">
     <testsuites>
-        <testsuite name="api-tools-skeleton">
-            <directory>./module/Application/test</directory>
+        <testsuite name="food-map">
+            <directory>./module/FoodMap/test</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./module/Application/src</directory>
-        </whitelist>
-    </filter>
 </phpunit>
