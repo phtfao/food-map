@@ -18,14 +18,14 @@ class LocalMapper
         return $resultset;
     }
 
-    public function fetch(int $id)
+    public function fetch(int $id): LocalEntity
     {
         $local = $this->find($id);
         $this->validaLocalExiste($local);
         return $local;
     }
 
-    public function save(array $data)
+    public function save(array $data): LocalEntity
     {
         $local = new LocalEntity();
 
@@ -39,7 +39,7 @@ class LocalMapper
         return $local;
     }
 
-    public function update(int $id, array $data)
+    public function update(int $id, array $data): LocalEntity
     {
         $local = $this->find($id);
         $this->validaLocalExiste($local);
@@ -66,12 +66,8 @@ class LocalMapper
         $local = $this->find($id);
         $this->validaLocalExiste($local);
         
-        if ($this->tableGateway->delete(['id' => $id]))
-        {
-            return true;
-        } else {
-            throw new \Exception("Falha ao excluir Ponto de Interesse de id $id.");
-        }
+        $this->tableGateway->delete(['id' => $id]);
+        return true;
     }
 
     public function find(int $id)
