@@ -26,10 +26,10 @@ Entre na pasta do projeto e execute os seguintes comandos:
 # docker-compose run food-map composer build
 ```
 Feito isso a aplicação já estará rodando na porta `8080`.
-#### Documentação
+### Documentação
 A documentação da API poderá ser acessada em http://localhost:8080/api-tools/swagger/FoodMap-v1#/Local .
 
-#### Testes 
+### Testes 
 Os testes de API pode ser executados através do comando:
 ```bash
 # docker-compose run food-map composer test-request
