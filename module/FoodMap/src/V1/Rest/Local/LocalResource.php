@@ -8,7 +8,8 @@ class LocalResource extends AbstractResourceListener
 {
     protected $mapper;
 
-    public function __construct(LocalMapper $mapper) {
+    public function __construct(LocalMapper $mapper)
+    {
         $this->mapper = $mapper;
     }
 

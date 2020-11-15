@@ -30,8 +30,8 @@ abstract class AbstractTest extends AbstractControllerTestCase
             include __DIR__ . '/../../../../../../config/application.config.php',
             $config
         ));
-        
-        $serviceManager = new ServiceManager ((new ServiceManagerConfig())->toArray());
+
+        $serviceManager = new ServiceManager((new ServiceManagerConfig())->toArray());
         $serviceManager->setService('ApplicationConfig', $this->getApplicationConfig());
         $serviceManager->get('ModuleManager')->loadModules();
         static::$serviceManager = $serviceManager;

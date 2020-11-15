@@ -79,5 +79,4 @@ class FoodMaprequestTest extends AbstractRequestTest
         $this->dispatch('/food-map/local/18', 'PATCH');
         $this->assertResponseStatusCode(200);
     }
-
 }

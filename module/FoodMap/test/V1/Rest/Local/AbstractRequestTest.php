@@ -32,7 +32,7 @@ abstract class AbstractRequestTest extends AbstractHttpControllerTestCase
 
     public function getHeaders(): Headers
     {
-        if (!$this->headers) {
+        if (! $this->headers) {
             $headers = $this->getRequest()->getHeaders();
             $this->headers = $headers;
         }

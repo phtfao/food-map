@@ -8,7 +8,8 @@ class LocalMapper
 {
     protected $tableGateway;
 
-    public function __construct(TableGateway $tableGateway) {
+    public function __construct(TableGateway $tableGateway)
+    {
         $this->tableGateway = $tableGateway;
     }
 
@@ -65,7 +66,7 @@ class LocalMapper
     {
         $local = $this->find($id);
         $this->validaLocalExiste($local);
-        
+
         $this->tableGateway->delete(['id' => $id]);
         return true;
     }
@@ -78,7 +79,7 @@ class LocalMapper
 
     public function validaLocalExiste($local)
     {
-        if (!($local instanceof LocalEntity)) {
+        if (! ($local instanceof LocalEntity)) {
             throw new \Exception('Ponto de Interesse não encontrado.', 404);
         }
         return true;

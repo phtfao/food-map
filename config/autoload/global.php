@@ -21,17 +21,17 @@ return [
     ],
     'api-tools-mvc-auth' => [
         'authentication' => [
-            'adapters' => [ 
-                'htpasswd' => [ 
-                    'adapter' => \Laminas\ApiTools\MvcAuth\Authentication\HttpAdapter::class,   
-                    'options' => [  
-                        'accept_schemes' => [   
-                            0 => 'basic',   
-                        ],  
-                        'realm' => 'FoodMap',   
-                        'htpasswd' => 'data/htpasswd',  
-                    ],  
-                ],  
+            'adapters' => [
+                'htpasswd' => [
+                    'adapter' => \Laminas\ApiTools\MvcAuth\Authentication\HttpAdapter::class,
+                    'options' => [
+                        'accept_schemes' => [
+                            0 => 'basic',
+                        ],
+                        'realm' => 'FoodMap',
+                        'htpasswd' => 'data/htpasswd',
+                    ],
+                ],
             ],
             'map' => [
                 'FoodMap\\V1' => 'htpasswd',
